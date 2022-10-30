@@ -8,6 +8,10 @@ public class Point {
         this.A = x;
         this.B = y;
     }
+
+    public static double area(Point a,Point b){
+        return Math.sqrt((((a.B - b.B) * (a.B - b.B) + (a.A - b.A) * (a.A - b.A))));
+    }
 }
 
 
