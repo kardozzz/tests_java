@@ -27,53 +27,7 @@ public class GroupCreationTests {
     wd.findElement(By.name("user")).click();
     wd.findElement(By.name("user")).clear();
     wd.findElement(By.name("user")).sendKeys("admin");
-    wd.findElement(By.name("pass")).clear();
-    wd.findElement(By.name("pass")).sendKeys("secret");
-    wd.findElement(By.id("LoginForm")).submit();
-    wd.findElement(By.linkText("groups")).click();
-    wd.findElement(By.name("new")).click();
-    wd.findElement(By.name("group_name")).click();
-    wd.findElement(By.name("group_name")).clear();
-    wd.findElement(By.name("group_name")).sendKeys("test");
-    wd.findElement(By.name("group_header")).clear();
-    wd.findElement(By.name("group_header")).sendKeys("test1");
-    wd.findElement(By.name("group_footer")).click();
-    wd.findElement(By.name("group_footer")).clear();
-    wd.findElement(By.name("group_footer")).sendKeys("test2");
-    wd.findElement(By.name("submit")).click();
-    wd.findElement(By.linkText("group page")).click();
-    wd.findElement(By.xpath("//div[@id='content']/form/span")).click();
-    wd.findElement(By.name("selected[]")).click();
-    wd.findElement(By.name("selected[]")).click();
-    wd.findElement(By.name("edit")).click();
-    wd.findElement(By.linkText("groups")).click();
-    wd.findElement(By.linkText("groups")).click();
-    wd.findElement(By.name("new")).click();
-    wd.findElement(By.name("group_name")).click();
-    wd.findElement(By.name("group_name")).clear();
-    wd.findElement(By.name("group_name")).sendKeys("test");
-    wd.findElement(By.name("group_header")).click();
-    wd.findElement(By.name("group_header")).clear();
-    wd.findElement(By.name("group_header")).sendKeys("tes");
-    wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys("admin");
-    wd.findElement(By.name("pass")).clear();
-    wd.findElement(By.name("pass")).sendKeys("secret");
-    wd.findElement(By.id("LoginForm")).submit();
-    wd.findElement(By.name("group_name")).click();
-    wd.findElement(By.name("group_name")).clear();
-    wd.findElement(By.name("group_name")).sendKeys("test");
-    wd.findElement(By.name("group_header")).click();
-    wd.findElement(By.name("group_header")).clear();
-    wd.findElement(By.name("group_header")).sendKeys("test1");
-    wd.findElement(By.name("group_footer")).clear();
-    wd.findElement(By.name("group_footer")).sendKeys("test2");
-    wd.findElement(By.name("submit")).click();
-    wd.findElement(By.linkText("group page")).click();
-    wd.findElement(By.linkText("Logout")).click();
-    wd.findElement(By.name("user")).click();
-    wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys("admin");
+    wd.findElement(By.name("pass")).click();
     wd.findElement(By.name("pass")).clear();
     wd.findElement(By.name("pass")).sendKeys("secret");
     wd.findElement(By.xpath("//input[@value='Login']")).click();
@@ -81,11 +35,13 @@ public class GroupCreationTests {
     wd.findElement(By.name("new")).click();
     wd.findElement(By.name("group_name")).click();
     wd.findElement(By.name("group_name")).clear();
-    wd.findElement(By.name("group_name")).sendKeys("test_group");
+    wd.findElement(By.name("group_name")).sendKeys("test1");
+    wd.findElement(By.name("group_header")).click();
     wd.findElement(By.name("group_header")).clear();
-    wd.findElement(By.name("group_header")).sendKeys("test1");
+    wd.findElement(By.name("group_header")).sendKeys("test2");
+    wd.findElement(By.name("group_footer")).click();
     wd.findElement(By.name("group_footer")).clear();
-    wd.findElement(By.name("group_footer")).sendKeys("test2");
+    wd.findElement(By.name("group_footer")).sendKeys("test3");
     wd.findElement(By.name("submit")).click();
     wd.findElement(By.linkText("group page")).click();
     wd.findElement(By.linkText("Logout")).click();
@@ -94,7 +50,6 @@ public class GroupCreationTests {
   @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
     wd.quit();
-
   }
 
   private boolean isElementPresent(By by) {
@@ -114,5 +69,4 @@ public class GroupCreationTests {
       return false;
     }
   }
-
 }
