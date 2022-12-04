@@ -39,11 +39,11 @@ public class GroupCreationTests {
     initGroupCreation();
     fillGroupForm(new GroupDate("test1", "test2", "test3"));
     submitGroupCreation();
-    returToGroupPage();
+    returnToGroupPage();
     wd.findElement(By.linkText("Logout")).click();
   }
 
-  private void returToGroupPage() {
+  private void returnToGroupPage() {
     wd.findElement(By.linkText("group page")).click();
   }
 
