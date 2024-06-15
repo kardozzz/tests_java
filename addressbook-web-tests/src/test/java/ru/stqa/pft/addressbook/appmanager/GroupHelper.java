@@ -18,12 +18,24 @@ public class GroupHelper extends HelperBase {
     public void submitGroupCreation(){
         click(By.name("submit"));
     }
+    public void updateGroupData(){
+        click(By.name("update"));
+    }
 
 
     public void fillGroupForm(GroupDate groupDate) {
         type(By.name("group_name"), groupDate.getName());
         type(By.name("group_header"), groupDate.getHeader());
         type(By.name("group_footer"), groupDate.getFooter());
+    }
+//    public void updateGroupForm(GroupDate groupDate) {
+//        type(By.name("group_name"), groupDate.getName());
+//        type(By.name("group_header"), groupDate.getHeader());
+//        type(By.name("group_footer"), groupDate.getFooter());
+//    }
+
+    public void editGroup() {
+        click(By.name("edit"));
     }
 
     public void initGroupCreation() {

@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public class HelperBase {
-    WebDriver wd;
+    static WebDriver wd;
 
     public HelperBase(WebDriver wd) {
         this.wd = wd;
@@ -24,7 +24,7 @@ public class HelperBase {
         }
     }
 
-    protected void click(By locator) {
+    public static void click(By locator) {
         wd.findElement(locator).click();
     }
 
@@ -33,21 +33,6 @@ public class HelperBase {
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
     }
+ }
 
-    public String closeAlertAndGetItsText() {
-        AtomicBoolean acceptNextAlert = new AtomicBoolean(false);
-        try {
-            Alert alert = wd.switchTo().alert();
-            String alertText = alert.getText();
-            if (acceptNextAlert.get()) {
-                alert.accept();
-            } else {
-                alert.dismiss();
-            }
-            return alertText;
-        } finally {
-            acceptNextAlert.set(true);
-        }
-    }
-}
 
