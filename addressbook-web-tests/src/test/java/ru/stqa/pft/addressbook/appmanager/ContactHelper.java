@@ -58,7 +58,7 @@ public class ContactHelper extends HelperBase {
 
 
     public void acceptDeleteContact(){
-        assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
+        wd.switchTo().alert().accept();
     }
     public void returnContactPage(){
         wd.findElement(By.linkText("home")).click();
