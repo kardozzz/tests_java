@@ -1,32 +1,52 @@
 package ru.stqa.pft.addressbook.appmanager;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class HelperBase {
-   WebDriver wd;
+    WebDriver wd;
 
     public HelperBase(WebDriver wd) {
         this.wd = wd;
+    }
+
+
+    public boolean isAlertPresent() {
+        try {
+            wd.switchTo().alert();
+            return true;
+        } catch (NoAlertPresentException e) {
+            return false;
+        }
     }
 
     protected void click(By locator) {
         wd.findElement(locator).click();
     }
 
-    protected void type( By locator, String text) {
+    public void type(By locator, String text) {
         click(locator);
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
     }
 
-    public  boolean isAlertPresent() {
+    public String closeAlertAndGetItsText() {
+        AtomicBoolean acceptNextAlert = new AtomicBoolean(false);
         try {
-            wd.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
+            Alert alert = wd.switchTo().alert();
+            String alertText = alert.getText();
+            if (acceptNextAlert.get()) {
+                alert.accept();
+            } else {
+                alert.dismiss();
+            }
+            return alertText;
+        } finally {
+            acceptNextAlert.set(true);
         }
     }
 }

@@ -5,12 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-public class ContactHelper {
+import static org.testng.Assert.assertTrue;
 
-private WebDriver wd;
+public class ContactHelper extends HelperBase {
+
 
     public ContactHelper(WebDriver wd) {
-        this.wd = wd;
+        super(wd);
     }
 
     public void initContactInfo(ContactData contactData) {
@@ -51,11 +52,19 @@ private WebDriver wd;
       wd.findElement(By.linkText("add new")).click();
     }
 
-    public void deleteContact() {
+    public void deleteSelectContact() {
         wd.findElement(By.xpath("//input[@value='Delete']")).click();
     }
 
+
+    public void acceptDeleteContact(){
+        assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
+    }
+    public void returnContactPage(){
+        wd.findElement(By.linkText("home")).click();
+    }
+
     public void selectContact() {
-        wd.findElement(By.id("1")).click();
+        wd.findElement(By.name("selected[]")).click();
     }
 }
