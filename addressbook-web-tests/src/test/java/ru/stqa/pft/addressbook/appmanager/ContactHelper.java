@@ -60,8 +60,14 @@ public class ContactHelper extends HelperBase {
     public void acceptDeleteContact(){
         wd.switchTo().alert().accept();
     }
-    public void returnContactPage(){
+    public void returnContactPage() {
         wd.findElement(By.linkText("home")).click();
+    }
+    public void updateContact(){
+        wd.findElement(By.xpath("//img[@alt='Edit']")).click();
+    }
+    public void completeUpdateContact(){
+        wd.findElement(By.xpath("//div[@id='content']/form/input[22]")).click();
     }
 
     public void selectContact() {
