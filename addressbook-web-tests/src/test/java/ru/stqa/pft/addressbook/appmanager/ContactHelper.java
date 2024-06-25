@@ -34,10 +34,8 @@ public class ContactHelper extends HelperBase {
       wd.findElement(By.name("email")).clear();
       wd.findElement(By.name("email")).sendKeys(contactData.getEmailContact());
       wd.findElement(By.name("bday")).click();
-      new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getbDayContact());
       wd.findElement(By.xpath("//option[@value='10']")).click();
       wd.findElement(By.name("bmonth")).click();
-      new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getbMonthContact());
       wd.findElement(By.xpath("//option[@value='July']")).click();
       wd.findElement(By.name("byear")).click();
       wd.findElement(By.name("byear")).clear();
